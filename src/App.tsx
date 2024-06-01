@@ -125,7 +125,7 @@ function App() {
 
   return (
     <motion.main
-      className="min-h-screen w-full grid place-items-center transition-colors"
+      className="min-h-screen w-full grid place-items-center transition-colors px-6"
       initial={{
         backgroundColor: tailwindColors.indigo["500"],
       }}
@@ -152,9 +152,9 @@ function App() {
                 animate={{
                   scale: 1,
                 }}
-                className="text-white font-bold text-3xl mb-5 text-center"
+                className="text-white font-bold text-2xl mb-5 text-center"
               >
-                {activeCard}
+                Card {activeCard}
               </motion.div>
 
               <div className="cards-container flex flex-wrap">
@@ -172,7 +172,7 @@ function App() {
                         dragConstraints={{ left: -10, right: 10 }}
                         dragSnapToOrigin
                         onDragEnd={handleDragEnd}
-                        className="card bg-white p-6 md:p-4 rounded-lg gap-[10px] md:gap-[15px] cursor-grab active:cursor-grabbing"
+                        className="card bg-white p-4 rounded-lg gap-[10px] cursor-grab active:cursor-grabbing scale-150"
                         initial="hidden"
                         animate="visible"
                         variants={cardContainer}
@@ -185,7 +185,7 @@ function App() {
                         {card.map((number, index) => (
                           <motion.div
                             key={index}
-                            className="card-number font-extrabold bg-slate-100 text-slate-600 flex justify-center items-center w-[50px] h-[50px] md:w-[80px] md:h-[80px] rounded-full transition-colors select-none md:text-3xl"
+                            className="card-number font-extrabold bg-slate-100 text-slate-600 flex justify-center items-center w-[60px] h-[60px] rounded-full transition-colors select-none md:text-xl text-lg"
                             variants={cardItem}
                           >
                             {number}
@@ -368,7 +368,7 @@ function App() {
 
           {activeSection === "landing" && (
             <motion.section
-              className="flex flex-col gap-6 items-center max-w-md"
+              className="flex flex-col gap-6 items-center"
               initial={{
                 scale: 0,
               }}
@@ -387,7 +387,7 @@ function App() {
               <div className="text-white flex flex-col gap-4 items-center text-sm">
                 <strong>TIP</strong>
 
-                <ul className="list-disc">
+                <ul className="list-disc list-inside">
                   <li>
                     You can interact using the available buttons but you can
                     also,
@@ -413,6 +413,17 @@ function App() {
             </motion.section>
           )}
         </AnimatePresence>
+
+        <span className="text-xs text-white text-center mt-10">
+          Made by{" "}
+          <a
+            href="https://www.github.com/aufarijaal"
+            className="underline"
+            target="_blank"
+          >
+            aufarijaal
+          </a>
+        </span>
       </div>
     </motion.main>
   );
